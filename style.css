@@ -25,6 +25,67 @@
   align-items: baseline;
 }
 
+.right-child-div {
+  position: relative;
+  top: 228px;
+  left: 85px;
+}
+
+.right-child-div h1 {
+  color: #fff;
+  font-size: 5rem;
+  line-height: 109px;
+  text-transform: uppercase;
+}
+
+.right-child-div h1:first-child {
+  display: flex;
+  align-items: center;
+  column-gap: 26px;
+  font-weight: 800;
+}
+
+.right-child-div h1:nth-child(2) {
+  font-weight: 900;
+}
+
+.right-child-div span {
+  font-size: 20px;
+  color: #000;
+  font-weight: 700;
+  line-height: 27px;
+  text-transform: uppercase;
+}
+
+.right-child-div button {
+  position: relative;
+  width: 191px;
+  height: 53px;
+  background: #212529;
+  border-radius: 8px;
+  top: 102px;
+}
+
+.right-child-div button a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 12px;
+  color: #fff;
+  font-family: 'Open Sans';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.right-child-div button:hover {
+  background: #212529;
+  outline: 4px solid rgba(194, 165, 249, 0.8);
+  border-radius: 8px;
+}
+
 /* 
 .left-side {
 } */
@@ -32,6 +93,12 @@
 .left-head {
   background: #7025fb;
   height: 84px;
+}
+
+.left-head img {
+  position: relative;
+  left: 6.5%;
+  top: 35.71%;
 }
 
 .left-body {
