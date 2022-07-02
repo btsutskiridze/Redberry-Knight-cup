@@ -9,13 +9,15 @@
   </head>
   <body>
     <div class="container">
+      <!-- ******* left ********* -->
       <div class="left-side">
         <div class="left-head">
           <img src="./images/Khight-cup-logo.svg" alt="logo" />
         </div>
         <div class="left-body"></div>
       </div>
-      <div class="right-side" style="visibility: visible">
+      <!-- ******* right ********* -->
+      <div class="right-side" style="display: none">
         <div class="right-child-div">
           <h1 class="right-h1">chess says <span> a lot about</span></h1>
           <h1>who we are</h1>
@@ -26,6 +28,58 @@
           </button>
         </div>
       </div>
+      <!-- ******* form ********** -->
+      <div class="personal-info">
+        <form action="#" class="form">
+          <!-- first step -->
+          <div action="" class="form-step form-step-active">
+            <div class="head-group">
+              <h1>Personal information</h1>
+              <h3>This is basic information field</h3>
+            </div>
+            <div class="input-group">
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Name*"
+              />
+            </div>
+            <div class="input-group">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email address*"
+              />
+            </div>
+            <div class="input-group">
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                placeholder="Phone number*"
+              />
+            </div>
+            <div class="input-group">
+              <input
+                type="date"
+                name="birthday"
+                id="birthday"
+                placeholder="Date of birth*"
+              />
+            </div>
+            <div class="btns-group">
+              <a href="#" class="btn btn-prev">Back </a>
+              <a href="#" class="btn btn-next"
+                >Next <img src="./images/button-arrow.svg" alt="arrow"
+              /></a>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./dropdown.js"></script>
   </body>
 </html>
