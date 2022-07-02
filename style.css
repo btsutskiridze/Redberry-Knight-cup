@@ -179,3 +179,49 @@
 .ml-auto {
   margin-left: auto;
 }
+
+/* buttons part */
+
+.btns-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 88px;
+}
+
+.btn {
+  display: block;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 400;
+  height: fit-content;
+  padding: 13px 24px;
+  border-radius: 8px;
+}
+
+.btn-prev {
+  width: 93px;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  transition: 0.3s;
+}
+.btn-prev:hover {
+  background: rgba(185, 180, 196, 0.3);
+  border: 1px solid rgba(194, 165, 249, 0.8);
+}
+
+.btn-next {
+  width: 128px;
+  background: var(--primary-color);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 12px;
+  transition: 0.3s;
+  margin-left: auto;
+}
+
+.btn-next:hover {
+  background: #212529;
+  outline: 4px solid #c2a5f9cc;
+}
