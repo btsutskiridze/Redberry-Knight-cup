@@ -1,16 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
+:root {
+  --primary-color: #212529;
+}
+
 * {
   font-family: 'Nunito', 'Open Sans', sans-serif;
   margin: 0;
   border: 0;
   padding: 0;
+  box-sizing: border-box;
+  outline: 0;
 }
 
 .container {
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: baseline;
 }
 
 .right-side,
@@ -67,6 +73,7 @@
 }
 
 .right-child-div button a {
+  font-family: 'Open Sans';
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,8 +89,7 @@
 
 .right-child-div button:hover {
   background: #212529;
-  outline: 4px solid rgba(194, 165, 249, 0.8);
-  border-radius: 8px;
+  outline: 4px solid #c2a5f9cc;
 }
 
 /* 
@@ -109,4 +115,67 @@
   background-size: cover;
   background-attachment: local;
   height: calc(100% - 84px);
+}
+
+/* regirstation part ***** */
+
+/* classes */
+
+/* parent div of form element */
+.personal-info {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  min-height: 100vh;
+  width: 50vw;
+}
+
+.personal-info * {
+  font-family: 'Open Sans';
+}
+
+.form {
+  width: 775px;
+  margin: 0 auto 0 48px;
+  /* border: 1px solid black; */
+}
+
+.head-group {
+  margin-bottom: 85px;
+}
+.head-group > h1 {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 48px;
+}
+
+.head-group > h3 {
+  font-weight: 600;
+  font-size: 14px;
+  color: #95939a;
+  text-transform: capitalize;
+}
+
+.input-group {
+  margin-bottom: 40px;
+}
+
+.input-group input {
+  /* styling form inputs globally*/
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.125);
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.ml-auto {
+  margin-left: auto;
 }
