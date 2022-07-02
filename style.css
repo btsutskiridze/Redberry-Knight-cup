@@ -225,3 +225,124 @@
   background: #212529;
   outline: 4px solid #c2a5f9cc;
 }
+
+/* dropdown select part */
+
+.select-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 23px;
+}
+
+.dropdown {
+  width: 392px;
+  position: relative;
+}
+
+.dropdown h2 {
+  height: 46px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  background: #fff;
+  border-radius: 8px;
+  color: #000;
+  box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.125);
+  border-radius: 4px;
+}
+
+.dropdown h2::after {
+  content: '';
+  background: url('images/dropdown-arrow.svg');
+  background-size: 16px;
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 100%;
+  width: 32px;
+  right: 10px;
+  top: 15px;
+  transition: all 0.1s;
+}
+
+/* .arrow class is to rotate arrow for dropdown menu */
+.dropdown .arrow::after {
+  transform: rotateX(180deg);
+  top: -15px;
+}
+
+.dropdown-options {
+  display: none;
+  position: absolute;
+  background: #fff;
+  color: #000;
+  width: 392px;
+  height: 199px;
+  opacity: 0;
+  transition: all 0.3s;
+  overflow-y: scroll;
+  top: 50px;
+  border: 1px solid rgba(185, 180, 196, 0.3);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 20px 0;
+}
+
+/* class added to .dropdown-options element to display list */
+.actived {
+  display: block;
+  opacity: 1;
+  transition: all 2s;
+  z-index: 2;
+}
+.dropdown-options::-webkit-scrollbar {
+  width: 8px;
+  background: #ffffff;
+  border-radius: 8px;
+}
+.dropdown-options::-webkit-scrollbar-thumb {
+  background: #525861;
+  border-radius: 8px;
+}
+
+.dropdown-options li {
+  /* height: 45px; */
+  font-weight: 400;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0.6em 1em;
+}
+
+.dropdown-options li:hover {
+  background: #f7f7f9;
+  font-weight: 600;
+}
+
+/* question part */
+.question-group {
+  margin: 88px 0 174px 0px;
+  padding: 8px 16px;
+}
+
+.question-group p {
+  padding: 8px 0;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.question-group .choice {
+  display: inline;
+  margin-right: 16px;
+  top: 12px;
+  position: relative;
+  font-weight: 400;
+  font-size: 16px;
+}
+.question-group input {
+  width: 20px;
+  height: 20px;
+}
+.question-group label {
+  position: relative;
+  top: -5px;
+}
