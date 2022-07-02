@@ -32,7 +32,11 @@
       <div class="personal-info">
         <form action="#" class="form">
           <!-- first step -->
-          <div action="" class="form-step form-step-active">
+          <div
+            action=""
+            class="form-step form-step-active"
+            style="display: none"
+          >
             <div class="head-group">
               <h1>Personal information</h1>
               <h3>This is basic information field</h3>
@@ -68,6 +72,50 @@
                 id="birthday"
                 placeholder="Date of birth*"
               />
+            </div>
+            <div class="btns-group">
+              <a href="#" class="btn btn-prev">Back </a>
+              <a href="#" class="btn btn-next"
+                >Next <img src="./images/button-arrow.svg" alt="arrow"
+              /></a>
+            </div>
+          </div>
+
+          <!-- second step -->
+          <div action="" class="form-step form-step-active">
+            <div class="head-group">
+              <h1>Chess experience</h1>
+              <h3>This is basic information field</h3>
+            </div>
+            <div class="select-group">
+              <div class="dropdown dropdown1">
+                <h2 class="h2">level of knowledge *</h2>
+                <ul class="dropdown-options">
+                  <li>Beginner</li>
+                  <li>Intermediate</li>
+                  <li>Professional</li>
+                </ul>
+              </div>
+              <div class="dropdown dropdown2">
+                <h2>Choose your character</h2>
+                <ul class="dropdown-options">
+                  <li>nona gaf</li>
+                  <li>gela</li>
+                  <li>vato</li>
+                  <li>dato</li>
+                </ul>
+              </div>
+            </div>
+            <div class="question-group">
+              <p>Have you participated in the Redberry Championship? *</p>
+              <div class="choice">
+                <input type="radio" id="yes" name="participated" value="yes" />
+                <label for="yes">Yes</label>
+              </div>
+              <div class="choice">
+                <input type="radio" id="no" name="participated" value="no" />
+                <label for="no">No</label>
+              </div>
             </div>
             <div class="btns-group">
               <a href="#" class="btn btn-prev">Back </a>
