@@ -215,6 +215,41 @@ const validateStep2 = () => {
   } else {
     firstDropdownHeader.classList.add('invalid');
   }
+
+  //player
+  let isSelectedTwo = 0;
+  for (let i = 0; i < secondDropdownOptions.length; i++) {
+    //checking if user choose difficulty level
+    console.log(secondDropdownOptions[i].textContent);
+    if (secondDropdownOptions[i].textContent == secondDropdownHeader.textContent) {
+      isSelectedTwo = true; // if we have selected one breaking loop
+      break;
+    }
+  }
+
+  //checking if option is selected
+  if (isSelectedTwo) {
+    secondDropdownHeader.classList.remove('invalid');
+  } else {
+    secondDropdownHeader.classList.add('invalid');
+  }
+
+  let isSelectedThree = false;
+  //now validating question part
+  if (yes.checked || no.checked) {
+    isSelectedThree = true;
+    document.querySelector('.question-group p').classList.remove('invalid');
+  } else {
+    isSelectedThree = false;
+    document.querySelector('.question-group p').classList.add('invalid');
+  }
+
+  if (isSelected && isSelectedTwo && isSelectedThree) {
+    //now checking if all of the options and if one of them is not satisfying the result returning false
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /*
