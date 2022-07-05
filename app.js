@@ -81,7 +81,6 @@ submitBtn.addEventListener('click', () => {
   //validating second step and submitting
 
   if (validateStep2()) {
-    console.log('finished');
     submitBtn.setAttribute('type', 'submit'); //adding type submit attribute because to submit the form
     sessionStorage.clear(); //clearing session
     window.open('./final.html', '_self'); //opening final step page
@@ -232,7 +231,6 @@ const validateStep2 = () => {
   let isSelectedTwo = 0;
   for (let i = 0; i < secondDropdownOptions.length; i++) {
     //checking if user choose difficulty level
-    console.log(secondDropdownOptions[i].textContent);
     if (secondDropdownOptions[i].textContent == secondDropdownHeader.textContent) {
       isSelectedTwo = true; // if we have selected one breaking loop
       break;
