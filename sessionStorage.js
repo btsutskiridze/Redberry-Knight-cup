@@ -3,11 +3,41 @@ document.addEventListener('DOMContentLoaded', () => {
   sessionStorageCall();
 });
 
+//function that will save inputs
+function saveValue(e) {
+  let id = e.id; // get the sender's id to save it .
+  let val = e.value; // get the value.
+  sessionStorage.setItem(id, val); // Every time user writing something, the localStorage's value will override .
+}
+
+//to save dropdown options input
+function saveDropdownValue(e) {
+  let id = e.firstElementChild.id;
+  let val = e.firstElementChild.textContent;
+  sessionStorage.setItem(id, val);
+}
+
+//to save radio inputs
+function checkRadioInput() {
+  document.getElementsByName('participated').forEach((e) => {
+    sessionStorage.setItem(e.value, e.checked);
+  });
+}
+
 function sessionStorageCall() {
   //saving small header above steps at start
   if (sessionStorage.getItem('smallHeader') === null) {
     sessionStorage.setItem('smallHeader', 'start creating your account');
   }
+
+  // saving dropdown default options at start
+  if (sessionStorage.getItem('knowledge') === null) {
+    sessionStorage.setItem('knowledge', 'level of  knowledge *');
+  }
+  if (sessionStorage.getItem('player') === null) {
+    sessionStorage.setItem('player', 'choose your player *');
+  }
+
   //first done
   if (sessionStorage.getItem('step1') == '') {
     step1.classList.remove('active');
@@ -52,4 +82,19 @@ function sessionStorageCall() {
 
   //4th done
   landingPagelefttSide.style.backgroundImage = sessionStorage.getItem('landingPagelefttSide');
+
+  //user inputs************
+  //inputs part
+  document.getElementById('name').value = sessionStorage.getItem('name');
+  document.getElementById('email').value = sessionStorage.getItem('email');
+  document.getElementById('phone').value = sessionStorage.getItem('phone');
+  document.getElementById('birthday').value = sessionStorage.getItem('birthday');
+
+  //dropdown options part
+  document.getElementById('knowledge').textContent = sessionStorage.getItem('knowledge');
+  document.getElementById('player').textContent = sessionStorage.getItem('player');
+
+  // question
+  document.getElementById('yes').checked = JSON.parse(sessionStorage.getItem('yes'));
+  document.getElementById('no').checked = JSON.parse(sessionStorage.getItem('no'));
 }
