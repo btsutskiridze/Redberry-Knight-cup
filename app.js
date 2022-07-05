@@ -83,6 +83,7 @@ submitBtn.addEventListener('click', () => {
   if (validateStep2()) {
     submitBtn.setAttribute('type', 'submit'); //adding type submit attribute because to submit the form
     window.sessionStorage.clear(); //clearing session
+    location.reload();
     window.open('./final.html', '_self'); //opening final step page
   }
 });
