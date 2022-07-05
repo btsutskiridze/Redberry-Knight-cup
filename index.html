@@ -44,10 +44,21 @@
               <h1>Personal information</h1>
               <h3>This is basic information field</h3>
             </div>
-            <input type="text" name="name" id="name" placeholder="Name*" class="input" autocomplete="off" />
-            <input type="email" name="email" id="email" placeholder="Email address*" class="input" autocomplete="off" />
-            <input type="tel" name="phone" id="phone" placeholder="Phone number*" class="input" autocomplete="off" onkeypress="return onlyNumberKey(event)" />
-            <input name="birthday" id="birthday" placeholder="Date of birth*" type="text" onfocus="(this.type='date')" class="input" autocomplete="off" min="1920-01-01" max="2006-12-31" />
+            <input type="text" name="name" id="name" onkeyup="saveValue(this)" placeholder="Name*" class="input" autocomplete="off" />
+            <input type="email" name="email" id="email" onkeyup="saveValue(this)" placeholder="Email address*" class="input" autocomplete="off" />
+            <input type="tel" name="phone" id="phone" onkeyup="saveValue(this)" placeholder="Phone number*" class="input" autocomplete="off" onkeypress="return onlyNumberKey(event)" />
+            <input
+              name="birthday"
+              id="birthday"
+              onkeyup="saveValue(this)"
+              placeholder="Date of birth*"
+              type="text"
+              onfocus="(this.type='date')"
+              class="input"
+              autocomplete="off"
+              min="1920-01-01"
+              max="2006-12-31"
+            />
           </div>
           <!-- first step end -->
           <!-- second step -->
@@ -57,17 +68,17 @@
               <h3>This is basic information field</h3>
             </div>
             <div class="select-group">
-              <div class="dropdown dropdown1">
-                <h2 class="h2">level of knowledge *</h2>
-                <ul class="dropdown-options">
+              <div class="dropdown dropdown1" onclick="saveDropdownValue(this)">
+                <h2 class="h2" id="knowledge">level of knowledge *</h2>
+                <ul class="first-dropdown-options dropdown-options">
                   <li>Beginner</li>
                   <li>Intermediate</li>
                   <li>Professional</li>
                 </ul>
               </div>
-              <div class="dropdown dropdown2">
-                <h2>Choose your character</h2>
-                <ul class="dropdown-options">
+              <div class="dropdown dropdown2" onclick="saveDropdownValue(this)">
+                <h2 id="player">Choose your character</h2>
+                <ul class="second-dropdown-options dropdown-options">
                   <li>nona gaf</li>
                   <li>gela</li>
                   <li>vato</li>
@@ -78,11 +89,11 @@
             <div class="question-group">
               <p>Have you participated in the Redberry Championship? *</p>
               <div class="choice">
-                <input type="radio" id="yes" name="participated" value="yes" />
+                <input type="radio" id="yes" name="participated" value="yes" onclick="checkRadioInput()" />
                 <label for="yes">Yes</label>
               </div>
               <div class="choice">
-                <input type="radio" id="no" name="participated" value="no" />
+                <input type="radio" id="no" name="participated" value="no" onclick="checkRadioInput()" />
                 <label for="no">No</label>
               </div>
             </div>
@@ -92,7 +103,7 @@
           <div class="buttons">
             <a href="#" class="btn btn-prev">Back </a>
             <a href="#" class="btn btn-next">Next <img src="./images/button-arrow.svg" alt="arrow" /></a>
-            <input type="submit" value="Done" class="btn btn-next submit-btn hide-btn" />
+            <input type="button" value="Done" class="btn btn-next submit-btn hide-btn" />
           </div>
           <!-- buttons end -->
         </form>
