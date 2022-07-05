@@ -76,6 +76,18 @@ nextBtn.addEventListener('click', () => {
   }
 });
 
+//when we are on final step we are clickin on submit button
+submitBtn.addEventListener('click', () => {
+  //validating second step and submitting
+
+  if (validateStep2()) {
+    console.log('finished');
+    submitBtn.setAttribute('type', 'submit'); //adding type submit attribute because to submit the form
+    window.open('./final.html', '_self'); //opening final step page
+    sessionStorage.clear(); //clearing session
+  }
+});
+
 //button prev
 prevBtn.addEventListener('click', () => {
   //checking which step is active
