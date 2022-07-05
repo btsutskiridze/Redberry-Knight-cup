@@ -74,12 +74,6 @@ nextBtn.addEventListener('click', () => {
       stepCounter = 0;
     }
   }
-  //validating second step and submitting
-  if (stepCounter == 1) {
-    if (validateStep2()) {
-      console.log('finished');
-    }
-  }
 });
 
 //button prev
@@ -181,7 +175,6 @@ const validateStep1 = () => {
       }
     }
   });
-
   //checking if this step of form is valid
   let check = 0;
   inputs.forEach((input) => {
@@ -195,8 +188,33 @@ const validateStep1 = () => {
 
 //second step
 //not written
+
 const validateStep2 = () => {
-  return true;
+  const firstDropdownHeader = document.getElementById('knowledge');
+  const secondDropdownHeader = document.getElementById('player');
+  const firstDropdownOptions = document.querySelectorAll('.first-dropdown-options > li');
+  const secondDropdownOptions = document.querySelectorAll('.second-dropdown-options > li');
+
+  //question elements
+  const yes = document.getElementById('yes');
+  const no = document.getElementById('no');
+
+  //knowledge
+  let isSelected = false;
+  for (let i = 0; i < firstDropdownOptions.length; i++) {
+    //checking if user choose difficulty level
+    if (firstDropdownOptions[i].textContent == firstDropdownHeader.textContent) {
+      isSelected = true; // if we have selected one breaking loop
+      break;
+    }
+  }
+
+  //checking if option is selected
+  if (isSelected) {
+    firstDropdownHeader.classList.remove('invalid');
+  } else {
+    firstDropdownHeader.classList.add('invalid');
+  }
 };
 
 /*
@@ -223,38 +241,48 @@ function onlyNumberKey(evt) {
 }
 
 // posting data to backend
-// form.addEventListener('submit', function (e) {
-//   //auto submision of the form
-//   e.preventDefault();
+form.addEventListener('submit', function (e) {
+  //auto submision of the form
+  e.preventDefault();
 
-//   let name = document.getElementById('name').value;
-//   let email = document.getElementById('email').value;
-//   let phone = document.getElementById('phone').value;
-//   let birthday = document.getElementById('birthday').value;
+  let name = document.getElementById('name').value;
+  let email = document.getElementById('email').value;
+  let phone = document.getElementById('phone').value;
+  let birthday = document.getElementById('birthday').value;
+  let knowledge = document.getElementById('knowledge').textContent;
+  let player = document.getElementById('player').textContent;
 
-//   console.log(name);
-//   console.log(email);
-//   console.log(phone);
-//   console.log(birthday);
+  //to check which option is valid
+  let yes = document.getElementById('yes');
+  let no = document.getElementById('no');
+  let participatedBefore = yes.checked ? yes.value : no.value;
 
-//   fetch('https://jsonplaceholder.typicode.com/posts', {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       title: name,
-//       body: email,
-//       id: phone,
-//     }),
-//     headers: {
-//       'Content-Type': 'application/json charset =UTF-8',
-//     },
-//   })
-//     .then((response) => {
-//       return response.json();
-//     })
-//     .then((data) => {
-//       console.log(data);
-//     });
-// });
+  console.log(name);
+  console.log(email);
+  console.log(phone);
+  console.log(birthday);
+  console.log(knowledge);
+  console.log(player);
+  console.log(participatedBefore);
+
+  // fetch('https://jsonplaceholder.typicode.com/posts', {
+  //   method: 'POST',
+  //   body: JSON.stringify({
+  //     title: name,
+  //     body: email,
+  //     id: phone,
+  //   }),
+  //   headers: {
+  //     'Content-Type': 'application/json charset =UTF-8',
+  //   },
+  // })
+  //   .then((response) => {
+  //     return response.json();
+  //   })
+  //   .then((data) => {
+  //     console.log(data);
+  //   });
+});
 
 // //get request
 // fetch('https://chess-tournament-api.devtest.ge/api/grandmasters')
