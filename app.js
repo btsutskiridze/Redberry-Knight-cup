@@ -87,6 +87,17 @@ submitBtn.addEventListener('click', () => {
   }
 });
 
+//then now refreshing page after going back because sessionStorage is not reseting without refresh
+window.addEventListener('pageshow', function (event) {
+  let historyTraversal = event.persisted || (typeof window.performance != 'undefined' && window.performance.navigation.type === 2);
+  if (historyTraversal) {
+    // Handle page restore.
+    document.body.display = 'none';
+    window.location.reload();
+    document.body.display = 'block';
+  }
+});
+
 //button prev
 prevBtn.addEventListener('click', () => {
   //checking which step is active
@@ -288,7 +299,7 @@ function onlyNumberKey(evt) {
 // posting data to backend
 form.addEventListener('submit', function (e) {
   //auto submision of the form
-  // e.preventDefault();
+  e.preventDefault();
 
   let name = document.getElementById('name').value;
   let email = document.getElementById('email').value;
