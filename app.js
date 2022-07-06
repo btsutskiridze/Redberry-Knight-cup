@@ -83,6 +83,7 @@ submitBtn.addEventListener('click', () => {
   if (validateStep2()) {
     submitBtn.setAttribute('type', 'submit'); //adding type submit attribute because to submit the form
     sessionStorage.clear();
+
     window.open('./final.html', '_self'); //opening final step page
   }
 });
@@ -92,9 +93,7 @@ window.addEventListener('pageshow', function (event) {
   let historyTraversal = event.persisted || (typeof window.performance != 'undefined' && window.performance.navigation.type === 2);
   if (historyTraversal) {
     // Handle page restore.
-    document.body.style.display = 'none';
     window.location.reload();
-    document.body.style.display = 'block';
   }
 });
 
