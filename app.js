@@ -82,7 +82,8 @@ submitBtn.addEventListener('click', () => {
 
   if (validateStep2()) {
     submitBtn.setAttribute('type', 'submit'); //adding type submit attribute because to submit the form
-    window.sessionStorage.clear(); //clearing session
+    form.addEventListener('submit', submitForm);
+    sessionStorage.clear();
     window.open('./final.html', '_self'); //opening final step page
   }
 });
@@ -286,7 +287,7 @@ function onlyNumberKey(evt) {
 }
 
 // posting data to backend
-form.addEventListener('submit', function (e) {
+function submitForm(e) {
   //auto submision of the form
   e.preventDefault();
 
@@ -327,7 +328,7 @@ form.addEventListener('submit', function (e) {
   //   .then((data) => {
   //     console.log(data);
   //   });
-});
+}
 
 // //get request
 // fetch('https://chess-tournament-api.devtest.ge/api/grandmasters')
@@ -339,8 +340,3 @@ form.addEventListener('submit', function (e) {
 //       console.log(d.name);
 //     });
 //   });
-
-// const inputs = document.querySelectorAll('.input');
-// inputs.forEach((i) => {
-//   console.log(i.name);
-// });
