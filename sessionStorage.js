@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.style.display = 'block';
   sessionStorageCall();
+  document.body.style.display = 'block';
 });
 
 //function that will save inputs
