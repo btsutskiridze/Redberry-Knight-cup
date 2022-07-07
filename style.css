@@ -533,7 +533,21 @@
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   margin-bottom: 20px;
+  animation: error-animate 0.5s;
 }
+
+@keyframes error-animate {
+  from {
+    transform: scale(0) rotate(-10deg);
+    opacity: 0.5;
+  }
+
+  to {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
 .error-top {
   font-size: 14px;
   font-weight: 600;
