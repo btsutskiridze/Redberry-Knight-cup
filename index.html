@@ -44,13 +44,24 @@
               <h1>Personal information</h1>
               <h3>This is basic information field</h3>
             </div>
-            <input type="text" name="name" id="name" onkeyup="saveValue(this)" placeholder="Name*" class="input" autocomplete="off" />
-            <input type="email" name="email" id="email" onkeyup="saveValue(this)" placeholder="Email address*" class="input" autocomplete="off" />
-            <input type="tel" name="phone" id="phone" onkeyup="saveValue(this)" placeholder="Phone number*" class="input" autocomplete="off" onkeypress="return onlyNumberKey(event)" />
+            <input type="text" name="name" id="name" onkeyup="saveValue(this)" onfocusout="nameValidation(this)" placeholder="Name*" class="input" autocomplete="off" />
+            <input type="email" name="email address" id="email" onkeyup="saveValue(this)" onfocusout=" emailValidation(this)" placeholder="Email address*" class="input" autocomplete="off" />
+            <input
+              type="tel"
+              name="phone number"
+              id="phone"
+              onkeyup="saveValue(this)"
+              onfocusout="phoneValidation(this)"
+              placeholder="Phone number*"
+              class="input"
+              autocomplete="off"
+              onkeypress="return onlyNumberKey(event)"
+            />
             <input
               name="birthday"
               id="birthday"
               onkeyup="saveValue(this)"
+              onfocusout="dateValidation(this)"
               placeholder="Date of birth*"
               type="text"
               onfocus="(this.type='date')"
