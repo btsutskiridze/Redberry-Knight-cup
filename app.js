@@ -139,6 +139,11 @@ prevBtn.addEventListener('click', () => {
     //changing leftside background
     landingPagelefttSide.style.backgroundImage = 'url(./images/step-1-bg.png)';
     sessionStorage.setItem('landingPagelefttSide', 'url(./images/step-1-bg.png)');
+
+    //if we have any  popup not closed by the user
+    removePopUp('knowledge');
+    removePopUp('character');
+    removePopUp('option');
   }
   //if we are on step 1 and want to go back to landing page
   if (stepCounter == 0) {
@@ -167,54 +172,25 @@ const validateStep1 = () => {
   inputs.forEach((input) => {
     //name input validation;
     if (input.name == 'name') {
-      if (input.value.length < 2) {
-        input.classList.add('invalid');
-        errorPopUp(input.name);
-      } else {
-        input.classList.remove('invalid');
-        removePopUp(input.name);
-      }
+      nameValidation(input) ? removePopUp(input.name) : errorPopUp(input.name);
     }
-    if (input.name == 'email') {
+    if (input.name == 'email address') {
       //email validation
-      if (!ValidateEmail(input)) {
-        input.classList.add('invalid');
-        errorPopUp(input.name + ' address');
-      } else {
-        input.classList.remove('invalid');
-        removePopUp(input.name + ' address');
-      }
+      emailValidation(input) ? removePopUp(input.name) : errorPopUp(input.name);
     }
-    if (input.name == 'phone') {
+    if (input.name == 'phone number') {
       //phone validation
-      if (input.value.length != 9) {
-        input.classList.add('invalid');
-        errorPopUp(input.name + ' number');
-      } else {
-        input.classList.remove('invalid');
-        removePopUp(input.name + ' number');
-      }
+      phoneValidation(input) ? removePopUp(input.name) : errorPopUp(input.name);
     }
     if (input.name == 'birthday') {
       //date validation
-      const inputDate = new Date(input.value); //taking input as date
-      const minDate = new Date('1920-01-01').getTime(); //converting min data to millsec
-      const maxDate = new Date('2006-12-31').getTime(); //converting max data to millsec
-
-      //comparing inputDate to limits
-      if (inputDate.toDateString() == 'Invalid Date' || inputDate.getTime() < minDate || inputDate.getTime() > maxDate) {
-        input.classList.add('invalid');
-        errorPopUp(input.name);
-      } else {
-        input.classList.remove('invalid');
-        removePopUp(input.name);
-      }
+      dateValidation(input) ? removePopUp(input.name) : errorPopUp(input.name);
     }
   });
   //checking if this step of form is valid
   let check = 0;
   inputs.forEach((input) => {
-    if (input.classList.contains('invalid')) {
+    if (input.classList.contains('input-invalid')) {
       check++;
     }
   });
@@ -247,10 +223,8 @@ const validateStep2 = () => {
 
   //checking if option is selected
   if (isSelected) {
-    firstDropdownHeader.classList.remove('invalid');
     removePopUp('knowledge');
   } else {
-    firstDropdownHeader.classList.add('invalid');
     errorPopUp('knowledge');
   }
 
@@ -266,10 +240,8 @@ const validateStep2 = () => {
 
   //checking if option is selected
   if (isSelectedTwo) {
-    secondDropdownHeader.classList.remove('invalid');
     removePopUp('character');
   } else {
-    secondDropdownHeader.classList.add('invalid');
     errorPopUp('character');
   }
 
@@ -277,11 +249,9 @@ const validateStep2 = () => {
   //now validating question part
   if (yes.checked || no.checked) {
     isSelectedThree = true;
-    document.querySelector('.question-group p').classList.remove('invalid');
     removePopUp('option');
   } else {
     isSelectedThree = false;
-    document.querySelector('.question-group p').classList.add('invalid');
     errorPopUp('option');
   }
 
@@ -298,8 +268,69 @@ const validateStep2 = () => {
 HELPER FUNCTIONS FOR STEP's VALIDATION
 ======================================
 */
+function nameValidation(input) {
+  if (input.value.length < 2) {
+    input.classList.add('input-invalid');
+    input.classList.remove('input-success');
+    return false;
+    // errorPopUp(input.name);
+  } else {
+    input.classList.remove('input-invalid');
+    input.classList.add('input-success');
+    return true;
+    // removePopUp(input.name);
+  }
+}
+
+function emailValidation(input) {
+  if (!ValidateEmailAddress(input)) {
+    input.classList.add('input-invalid');
+    input.classList.remove('input-success');
+    return false;
+    // errorPopUp(input.name + ' address');
+  } else {
+    input.classList.remove('input-invalid');
+    input.classList.add('input-success');
+    return true;
+    // removePopUp(input.name + ' address');
+  }
+}
+
+function phoneValidation(input) {
+  if (input.value.length != 9) {
+    input.classList.add('input-invalid');
+    input.classList.remove('input-success');
+    return false;
+    // errorPopUp(input.name + ' number');
+  } else {
+    input.classList.remove('input-invalid');
+    input.classList.add('input-success');
+    return true;
+    // removePopUp(input.name + ' number');
+  }
+}
+
+function dateValidation(input) {
+  const inputDate = new Date(input.value); //taking input as date
+  const minDate = new Date('1920-01-01').getTime(); //converting min data to millsec
+  const maxDate = new Date('2006-12-31').getTime(); //converting max data to millsec
+
+  //comparing inputDate to limits
+  if (inputDate.toDateString() == 'Invalid Date' || inputDate.getTime() < minDate || inputDate.getTime() > maxDate) {
+    input.classList.add('input-invalid');
+    input.classList.remove('input-success');
+    return false;
+    // errorPopUp(input.name);
+  } else {
+    input.classList.remove('input-invalid');
+    input.classList.add('input-success');
+    return true;
+    // removePopUp(input.name);
+  }
+}
+
 //function for validating email
-function ValidateEmail(input) {
+function ValidateEmailAddress(input) {
   var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@redberry.ge/;
   if (input.value.match(validRegex)) {
     return true;
@@ -343,8 +374,6 @@ function errorPopUp(input) {
   //adding event listener to close button
   closeBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      console.log(e.target);
-      console.log('clicked');
       const errorContainer = e.target.parentElement.parentElement;
       errorContainer.remove();
       errorContainer.classList.add('hide-error');
