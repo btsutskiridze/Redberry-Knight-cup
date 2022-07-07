@@ -336,7 +336,7 @@ function errorPopUp(input) {
 
   //adding event listener to close button
   closeBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
       console.log(e.target);
       console.log('clicked');
       const errorContainer = e.target.parentElement.parentElement;
