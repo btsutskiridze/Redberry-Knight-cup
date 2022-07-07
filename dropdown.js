@@ -32,10 +32,9 @@ const getCharacters = async () => {
 getCharacters().then(() => {
   document.querySelectorAll('.second-dropdown-options > li').forEach((element) => {
     element.addEventListener('click', (e) => {
-      document.getElementById('player').innerHTML = element.innerHTML; //changing selected option after click
+      document.getElementById('player').innerHTML = element.textContent; //changing selected option after click
       document.getElementById('player').dataset.id = element.getAttribute('data-id'); //setting id as well
       e.target.parentElement.classList.remove('actived'); //removing class to dropdown ul element
-      e.target.parentElement.style.top = '100px';
       document.getElementById('player').classList.remove('arrow'); //removing class to dropdown ul element
     });
   });
