@@ -288,6 +288,7 @@
 
 .input-group {
   margin-bottom: 0px;
+  margin: 30px;
 }
 
 .input-group input {
@@ -297,14 +298,37 @@
   padding: 0.75rem;
   box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.125);
   border-radius: 4px;
-  padding: 8px 16px;
+  padding: 10px 16px;
   font-weight: 400;
   font-size: 20px;
   margin-bottom: 40px;
 }
+/* succsess */
+/* .input-success */
 
-.invalid {
-  border: 1px solid red;
+.input-success {
+  background-image: url('./images/input-checked.svg');
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: calc(100% - 13px) 13px;
+  background-attachment: local;
+}
+
+.input-invalid {
+  background: #ffefef;
+  color: #dc3545;
+}
+
+/* hover */
+.input-group input:hover {
+  background: #f8f9fa;
+  color: rgba(33, 37, 41, 0.5);
+}
+/* active */
+.input-group input:active,
+.input-group input:focus {
+  background: #e9ecef;
+  color: #212529;
 }
 
 .width-50 {
@@ -313,6 +337,12 @@
 
 .ml-auto {
   margin-left: auto;
+}
+/* removing callendar icon from date input */
+input[type='date']::-webkit-inner-spin-button,
+input[type='date']::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
 }
 
 /* buttons part */
@@ -568,6 +598,8 @@
 }
 .close-btn {
   cursor: pointer;
+  /* width: 15px; */
+  padding: 10px;
 }
 
 .error-bottom {
