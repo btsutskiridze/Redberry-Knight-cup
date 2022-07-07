@@ -56,6 +56,10 @@ nextBtn.addEventListener('click', () => {
       sessionStorage.setItem('stepCounter', stepCounter);
       sessionStorage.setItem('indicators', 'progress-step-active');
 
+      //progress checked
+      indicators[stepCounter].classList.add('checked');
+      sessionStorage.setItem('indicators2', 'checked');
+
       //changing buttons
       nextBtn.classList.add('hide-btn');
       sessionStorage.setItem('nextBtn', 'hide-btn');
@@ -117,6 +121,9 @@ prevBtn.addEventListener('click', () => {
     indicators[stepCounter].classList.remove('progress-step-active');
     sessionStorage.setItem('stepCounter', stepCounter);
     sessionStorage.setItem('indicators', '');
+
+    indicators[stepCounter - 1].classList.remove('checked');
+    sessionStorage.setItem('indicators2', '');
 
     //changing buttons
     submitBtn.classList.add('hide-btn');
