@@ -17,17 +17,7 @@ function saveDropdownValue(e) {
   sessionStorage.setItem(id, val);
 
   if (e.classList.contains('dropdown2')) {
-    let imgUrl;
-    if (e.firstElementChild.firstElementChild != null) {
-      if (e.firstElementChild.firstElementChild.hasAttribute('src')) {
-        imgUrl = e.firstElementChild.firstElementChild.getAttribute('src');
-      } else {
-        imgUrl = '';
-      }
-    }
     let dataId = e.firstElementChild.getAttribute('data-id');
-    let data = `${val}<img src="${imgUrl}"   alt="" />`;
-    sessionStorage.setItem(id, data);
     sessionStorage.setItem('dataId', dataId);
   }
 }
@@ -76,7 +66,9 @@ function sessionStorageCall() {
   if (sessionStorage.getItem('indicators2') == '') {
     indicators[JSON.parse(sessionStorage.getItem('stepCounter')) - 1].classList.remove('checked');
   } else {
-    indicators[JSON.parse(sessionStorage.getItem('stepCounter'))].classList.add(sessionStorage.getItem('indicators2'));
+    if (sessionStorage.getItem('stepCounter') != null) {
+      indicators[JSON.parse(sessionStorage.getItem('stepCounter'))].classList.add(sessionStorage.getItem('indicators2'));
+    }
   }
 
   //nextBtn
@@ -115,7 +107,7 @@ function sessionStorageCall() {
   document.getElementById('knowledge').textContent = sessionStorage.getItem('knowledge');
   //character choose part
   document.getElementById('player').innerHTML = sessionStorage.getItem('player');
-  document.getElementById('player').dataset.id = sessionStorage.getItem('playerId');
+  document.getElementById('player').dataset.id = sessionStorage.getItem('dataId');
 
   // question
   document.getElementById('yes').checked = JSON.parse(sessionStorage.getItem('yes'));
