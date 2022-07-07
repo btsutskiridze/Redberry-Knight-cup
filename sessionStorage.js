@@ -15,6 +15,21 @@ function saveDropdownValue(e) {
   let id = e.firstElementChild.id;
   let val = e.firstElementChild.textContent;
   sessionStorage.setItem(id, val);
+
+  if (e.classList.contains('dropdown2')) {
+    let imgUrl;
+    if (e.firstElementChild.firstElementChild != null) {
+      if (e.firstElementChild.firstElementChild.hasAttribute('src')) {
+        imgUrl = e.firstElementChild.firstElementChild.getAttribute('src');
+      } else {
+        imgUrl = '';
+      }
+    }
+    let dataId = e.firstElementChild.getAttribute('data-id');
+    let data = `${val}<img src="${imgUrl}"   alt="" />`;
+    sessionStorage.setItem(id, data);
+    sessionStorage.setItem('dataId', dataId);
+  }
 }
 
 //to save radio inputs
@@ -23,7 +38,6 @@ function checkRadioInput() {
     sessionStorage.setItem(e.value, e.checked);
   });
 }
-
 function sessionStorageCall() {
   //saving small header above steps at start
   if (sessionStorage.getItem('smallHeader') === null) {
@@ -56,6 +70,13 @@ function sessionStorageCall() {
     indicators[JSON.parse(sessionStorage.getItem('stepCounter'))].classList.remove('progress-step-active');
   } else {
     indicators[JSON.parse(sessionStorage.getItem('stepCounter')) + 1].classList.add(sessionStorage.getItem('indicators'));
+  }
+
+  //indicators checked
+  if (sessionStorage.getItem('indicators2') == '') {
+    indicators[JSON.parse(sessionStorage.getItem('stepCounter')) - 1].classList.remove('checked');
+  } else {
+    indicators[JSON.parse(sessionStorage.getItem('stepCounter'))].classList.add(sessionStorage.getItem('indicators2'));
   }
 
   //nextBtn
@@ -92,7 +113,9 @@ function sessionStorageCall() {
 
   //dropdown options part
   document.getElementById('knowledge').textContent = sessionStorage.getItem('knowledge');
-  document.getElementById('player').textContent = sessionStorage.getItem('player');
+  //character choose part
+  document.getElementById('player').innerHTML = sessionStorage.getItem('player');
+  document.getElementById('player').dataset.id = sessionStorage.getItem('playerId');
 
   // question
   document.getElementById('yes').checked = JSON.parse(sessionStorage.getItem('yes'));
