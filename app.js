@@ -169,24 +169,30 @@ const validateStep1 = () => {
     if (input.name == 'name') {
       if (input.value.length < 2) {
         input.classList.add('invalid');
+        errorPopUp(input.name);
       } else {
         input.classList.remove('invalid');
+        removePopUp(input.name);
       }
     }
     if (input.name == 'email') {
       //email validation
       if (!ValidateEmail(input)) {
         input.classList.add('invalid');
+        errorPopUp(input.name + ' address');
       } else {
         input.classList.remove('invalid');
+        removePopUp(input.name + ' address');
       }
     }
     if (input.name == 'phone') {
       //phone validation
       if (input.value.length != 9) {
         input.classList.add('invalid');
+        errorPopUp(input.name + ' number');
       } else {
         input.classList.remove('invalid');
+        removePopUp(input.name + ' number');
       }
     }
     if (input.name == 'birthday') {
@@ -198,8 +204,10 @@ const validateStep1 = () => {
       //comparing inputDate to limits
       if (inputDate.toDateString() == 'Invalid Date' || inputDate.getTime() < minDate || inputDate.getTime() > maxDate) {
         input.classList.add('invalid');
+        errorPopUp(input.name);
       } else {
         input.classList.remove('invalid');
+        removePopUp(input.name);
       }
     }
   });
@@ -301,6 +309,50 @@ function onlyNumberKey(evt) {
   if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) return false;
   return true;
 }
+
+// ************* popup error part ***********
+function errorPopUp(input) {
+  const errors = document.querySelector('.errors');
+  let closeBtns;
+  const errorDiv = `
+    <div class="error-message" id="${input}-error">
+      <h3 class="error-top">
+        <span
+          ><img src="./images/error.svg" alt="error" />
+          <span>Invalid ${input}</span>
+        </span>
+        <img src="./images/close-btn.svg" class="close-btn" alt="close" />
+      </h3>
+      <h3 class="error-bottom">Please enter valid ${input}</h3>
+    </div>
+  `;
+
+  removePopUp(input);
+
+  errors.innerHTML += errorDiv;
+
+  //we have to declare close button after appending error divs
+  closeBtns = document.querySelectorAll('.close-btn');
+
+  //adding event listener to close button
+  closeBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      console.log(e.target);
+      console.log('clicked');
+      const errorContainer = e.target.parentElement.parentElement;
+      errorContainer.remove();
+      errorContainer.classList.add('hide-error');
+    });
+  });
+}
+
+function removePopUp(input) {
+  if (document.getElementById(input + '-error') != null) {
+    document.getElementById(input + '-error').remove();
+  }
+}
+
+// ************** end of popup error part ***************
 
 // posting data to backend
 form.addEventListener('submit', function (e) {
