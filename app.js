@@ -248,8 +248,10 @@ const validateStep2 = () => {
   //checking if option is selected
   if (isSelected) {
     firstDropdownHeader.classList.remove('invalid');
+    removePopUp('knowledge');
   } else {
     firstDropdownHeader.classList.add('invalid');
+    errorPopUp('knowledge');
   }
 
   //player
@@ -265,8 +267,10 @@ const validateStep2 = () => {
   //checking if option is selected
   if (isSelectedTwo) {
     secondDropdownHeader.classList.remove('invalid');
+    removePopUp('character');
   } else {
     secondDropdownHeader.classList.add('invalid');
+    errorPopUp('character');
   }
 
   let isSelectedThree = false;
@@ -274,9 +278,11 @@ const validateStep2 = () => {
   if (yes.checked || no.checked) {
     isSelectedThree = true;
     document.querySelector('.question-group p').classList.remove('invalid');
+    removePopUp('option');
   } else {
     isSelectedThree = false;
     document.querySelector('.question-group p').classList.add('invalid');
+    errorPopUp('option');
   }
 
   if (isSelected && isSelectedTwo && isSelectedThree) {
