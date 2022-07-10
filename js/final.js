@@ -43,18 +43,10 @@ function postDATA() {
     });
 }
 
+//adding page event listener and if user pressed go back button of browser page will restart
 window.addEventListener('pageshow', function (event) {
   let historyTraversal = event.persisted || (typeof window.performance != 'undefined' && window.performance.navigation.type === 2);
   if (historyTraversal) {
-    // Handle page restore.
-    // const labels = document.querySelectorAll('.input-div> label');
-    // labels.forEach((label) => {
-    //   label.classList.remove('hide-label');
-    // });
-    // window.location.reload();
+    window.location.reload();
   }
 });
-
-window.onbeforeunload = () => {
-  window.location.reload();
-};
