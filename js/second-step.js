@@ -67,7 +67,7 @@ submitBtn.addEventListener('click', () => {
       alert('success');
     }
     sessionStorage.clear();
-    window.open('./final.html', '_self'); //opening final step page
+    window.location.href = 'final.html'; //opening final step page
   }
 });
 
