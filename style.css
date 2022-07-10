@@ -100,7 +100,7 @@
 
 .right-child-div button:hover {
   background: #212529;
-  outline: 4px solid #c2a5f9cc;
+  outline: 4px solid rgba(194, 165, 249, 0.8);
 }
 
 /* 
@@ -129,6 +129,58 @@
   transition: 0.3s;
 }
 
+/* **************** quote on left side */
+.quote {
+  position: relative;
+  width: 423px;
+  height: 140px;
+  left: 132px;
+  top: 251px;
+  text-transform: uppercase;
+  font-style: italic;
+}
+.quote1 {
+  display: none;
+}
+.quote2 {
+  display: none;
+  width: 615px;
+  top: 197px;
+}
+
+.quote-active {
+  display: block;
+}
+
+.quote h1 {
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 35px;
+  color: #212529;
+}
+
+.quote1 h1 {
+  margin-bottom: 24px;
+}
+.quote2 h1 {
+  margin-bottom: 32px;
+}
+
+.quote p {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 33px;
+}
+.quote1 p {
+  color: #e5e6e8;
+}
+
+.quote2 p {
+  color: #093f68;
+  text-align: right;
+}
+
 /* regirstation part ***** */
 
 /* classes */
@@ -140,6 +192,7 @@
   min-height: 100vh;
   width: 50vw;
   display: none;
+  align-items: flex-start;
 }
 
 .personal-info * {
@@ -175,7 +228,7 @@
   position: relative;
   grid-template-columns: repeat(2, 40px);
   column-gap: 182px;
-  margin-bottom: 140px;
+  margin-top: 60px;
   margin-left: 59px;
   counter-reset: step;
 }
@@ -238,6 +291,10 @@
 }
 
 .progress-step-active {
+  /* background: #e9faf1; */
+  color: #212529;
+}
+.green {
   background: #e9faf1;
   color: #212529;
 }
@@ -245,7 +302,9 @@
 /* form */
 .registerForm {
   width: 775px;
-  margin: 0 auto 0 48px;
+  height: 729px;
+  margin: 84px auto 0 48px;
+  position: relative;
   /* border: 1px solid black; */
 }
 
@@ -271,7 +330,7 @@
 }
 
 .head-group {
-  margin-bottom: 55px;
+  margin-bottom: 85px;
 }
 .head-group > h1 {
   font-weight: 600;
@@ -286,9 +345,12 @@
   text-transform: capitalize;
 }
 
-.input-group {
+.input-group,
+#step2 {
+  position: relative;
+  margin: 0px;
+  margin-top: 140px;
   margin-bottom: 0px;
-  margin: 30px;
 }
 
 .input-group input {
@@ -296,13 +358,14 @@
   display: block;
   width: 100%;
   padding: 0.75rem;
-  box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.212);
   border-radius: 4px;
   padding: 10px 16px;
   font-weight: 400;
   font-size: 20px;
   margin-bottom: 40px;
 }
+
 /* succsess */
 /* .input-success */
 
@@ -324,11 +387,18 @@
   background: #f8f9fa;
   color: rgba(33, 37, 41, 0.5);
 }
+
 /* active */
 .input-group input:active,
 .input-group input:focus {
   background: #e9ecef;
   color: #212529;
+}
+
+.input-group input::placeholder {
+  color: #212529;
+  font-weight: 400;
+  font-size: 20px;
 }
 
 .width-50 {
@@ -401,9 +471,8 @@ input[type='date']::-webkit-calendar-picker-indicator {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 23px;
-  height: 100px;
   align-items: flex-end;
-  margin-bottom: 80px;
+  margin-bottom: 95px;
 }
 
 .dropdown {
@@ -417,6 +486,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   cursor: pointer;
   font-size: 20px;
   font-weight: 400;
+  /* text-transform: capitalize; */
   background: #fff;
   color: #000;
   box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.125);
@@ -481,8 +551,9 @@ input[type='date']::-webkit-calendar-picker-indicator {
   /* height: 45px; */
   font-weight: 400;
   font-size: 20px;
+  text-transform: capitalize;
   cursor: pointer;
-  padding: 0.6em 1em;
+  padding: 0.6em 28px;
 }
 
 .dropdown-options li:hover {
@@ -558,9 +629,9 @@ input[type='date']::-webkit-calendar-picker-indicator {
   justify-content: center;
   width: 350px;
   height: 87px;
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  background: #ffffffd9;
+  border: 1px solid #0000001a;
+  box-shadow: 0px 8px 16px #00000026;
   border-radius: 4px;
   margin-bottom: 20px;
   animation: error-animate 0.5s;
@@ -598,8 +669,14 @@ input[type='date']::-webkit-calendar-picker-indicator {
 }
 .close-btn {
   cursor: pointer;
-  /* width: 15px; */
-  padding: 10px;
+  /* width: 14px; */
+  /* height: 14px; */
+  padding: 6px;
+}
+
+.close-btn:hover {
+  background: #dadadb;
+  border-radius: 4px;
 }
 
 .error-bottom {
@@ -608,11 +685,5 @@ input[type='date']::-webkit-calendar-picker-indicator {
   width: 100%;
   font-size: 16px;
   color: #212529;
-  justify-self: center;
-  align-self: center;
   padding: 12px;
-}
-
-.hide-error {
-  display: none;
 }
