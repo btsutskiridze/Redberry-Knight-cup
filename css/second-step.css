@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary-color: #212529;
+}
+
+* {
+  font-family: 'Nunito', 'Open Sans', sans-serif;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: baseline;
+}
+
+.right-side,
+.left-side {
+  width: 50vw;
+}
+
+/* dropdown select part */
+
+.select-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 23px;
+  align-items: flex-end;
+  margin-bottom: 95px;
+}
+
+.dropdown {
+  width: 392px;
+  position: relative;
+}
+
+.dropdown h2 {
+  height: fit-content;
+  padding: 8px 24px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  /* text-transform: capitalize; */
+  background: #fff;
+  color: #000;
+  box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.125);
+  border-radius: 4px;
+}
+
+.dropdown h2::after {
+  content: '';
+  background: url('images/dropdown-arrow.svg');
+  background-size: 16px;
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 100%;
+  width: 32px;
+  right: 0px;
+  top: 15px;
+  transition: all 0.1s;
+}
+
+/* .arrow class is to rotate arrow for dropdown menu */
+.dropdown .arrow::after {
+  transform: rotateX(180deg);
+  top: -15px;
+}
+
+.dropdown-options {
+  display: none;
+  position: absolute;
+  background: #fff;
+  color: #000;
+  width: 392px;
+  height: 199px;
+  opacity: 0;
+  transition: all 0.3s;
+  overflow-y: scroll;
+  top: 50px;
+  border: 1px solid rgba(185, 180, 196, 0.3);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 20px 0;
+}
+
+/* class added to .dropdown-options element to display list */
+.actived {
+  display: block;
+  opacity: 1;
+  transition: all 2s;
+  z-index: 2;
+}
+
+.dropdown-options::-webkit-scrollbar {
+  width: 8px;
+  background: #ffffff;
+  border-radius: 8px;
+}
+.dropdown-options::-webkit-scrollbar-thumb {
+  background: #525861;
+  border-radius: 8px;
+}
+
+.dropdown-options li {
+  /* height: 45px; */
+  font-weight: 400;
+  font-size: 20px;
+  text-transform: capitalize;
+  cursor: pointer;
+  padding: 0.6em 28px;
+}
+
+.dropdown-options li:hover {
+  background: #f7f7f9;
+  font-weight: 600;
+}
+
+/* choose player dropdown */
+.second-dropdown-options {
+  height: 419px;
+}
+
+.second-dropdown-options li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.second-dropdown-options img,
+#player img {
+  width: 100px;
+  object-position: right;
+  object-fit: contain;
+  height: 72px;
+  border-radius: 4px;
+  justify-self: last baseline;
+}
+
+#player img {
+  position: relative;
+  right: 25px;
+}
+
+/* question part */
+.question-group {
+  margin: 26px 0 116px 0px;
+  padding: 8px 16px;
+}
+
+.question-group p {
+  padding: 8px 0;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.question-group .choice {
+  display: inline;
+  margin-right: 16px;
+  top: 12px;
+  position: relative;
+  font-weight: 400;
+  font-size: 16px;
+}
+.question-group input {
+  width: 20px;
+  height: 20px;
+}
+.question-group label {
+  position: relative;
+  top: -5px;
+}
+
+/* error mesage box styling */
+.errors {
+  position: absolute;
+  top: 206px;
+  right: 39px;
+}
+.error-message {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 350px;
+  height: 87px;
+  background: #ffffffd9;
+  border: 1px solid #0000001a;
+  box-shadow: 0px 8px 16px #00000026;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  animation: error-animate 0.5s;
+}
+
+@keyframes error-animate {
+  from {
+    transform: scale(0) rotate(-10deg);
+    opacity: 0.5;
+  }
+
+  to {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.error-top {
+  font-size: 14px;
+  font-weight: 600;
+  height: 39px;
+  color: #dc3545;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #0000000e;
+}
+.error-top span {
+  display: flex;
+  align-items: center;
+}
+.error-top span > img {
+  margin-right: 10px;
+}
+.close-btn {
+  cursor: pointer;
+  /* width: 14px; */
+  /* height: 14px; */
+  padding: 6px;
+}
+
+.close-btn:hover {
+  background: #dadadb;
+  border-radius: 4px;
+}
+
+.error-bottom {
+  font-weight: 400;
+  height: 48px;
+  width: 100%;
+  font-size: 16px;
+  color: var(--primary-color);
+  padding: 12px;
+}
