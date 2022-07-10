@@ -42,8 +42,8 @@ nextBtn.addEventListener('click', () => {
     sessionStorage.setItem('smallHeader', 'First step is done, continue to finish onboarding');
 
     //changing background image
-    landingPagelefttSide.style.backgroundImage = 'url(../images/step-2-bg.png)';
-    sessionStorage.setItem('landingPagelefttSide', 'url(../images/step-2-bg.png)');
+    landingPagelefttSide.style.backgroundImage = 'url(./images/step-2-bg.png)';
+    sessionStorage.setItem('landingPagelefttSide', 'url(./images/step-2-bg.png)');
 
     //adding quote on left body
     document.getElementById('quote1').classList.remove('quote-active');
