@@ -42,8 +42,8 @@ prevBtn.addEventListener('click', () => {
     sessionStorage.setItem('smallHeader', 'start creating your account');
 
     //changing leftside background
-    landingPagelefttSide.style.backgroundImage = 'url(./images/step-1-bg.png)';
-    sessionStorage.setItem('landingPagelefttSide', 'url(./images/step-1-bg.png)');
+    landingPagelefttSide.style.backgroundImage = 'url(../images/step-1-bg.png)';
+    sessionStorage.setItem('landingPagelefttSide', 'url(../images/step-1-bg.png)');
 
     //adding quote on left body
     document.getElementById('quote1').classList.add('quote-active');

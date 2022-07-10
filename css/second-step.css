@@ -54,7 +54,7 @@
 
 .dropdown h2::after {
   content: '';
-  background: url('images/dropdown-arrow.svg');
+  background: url('../images/dropdown-arrow.svg');
   background-size: 16px;
   background-repeat: no-repeat;
   position: absolute;

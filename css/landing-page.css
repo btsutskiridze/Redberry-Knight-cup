@@ -120,7 +120,7 @@
 
 .left-body {
   position: relative;
-  background-image: url('./images/Landing-page-scrolling-photo-1.png');
+  background-image: url('../images/Landing-page-scrolling-photo-1.png');
   background-position: 0 -84px;
   background-repeat: no-repeat;
   background-size: cover;

@@ -51,7 +51,7 @@
 
 .left-body {
   position: relative;
-  background-image: url('./images/final-bg.png');
+  background-image: url('../images/final-bg.png');
   background-position: 0 -84px;
   background-repeat: no-repeat;
   background-size: cover;
