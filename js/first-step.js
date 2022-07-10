@@ -144,7 +144,7 @@ function progressGreen() {
 // ***helpers***
 //helper for name validation
 function nameValidation(input) {
-  if (input.value.length < 2) {
+  if (input.value.length < 2 || !input.value.match(/^[a-zA-Z ]{2,20}$/)) {
     input.classList.add('input-invalid');
     input.classList.remove('input-success');
     return false;
@@ -174,7 +174,7 @@ function emailValidation(input) {
 
 //helper for phone validation
 function phoneValidation(input) {
-  if (input.value.length != 9) {
+  if (!input.value.match(/^5\d{8}$/)) {
     input.classList.add('input-invalid');
     input.classList.remove('input-success');
     return false;
@@ -221,7 +221,11 @@ function ValidateEmailAddress(input) {
 //using on input keypress=""
 function onlyNumberKey(evt) {
   // Only ASCII character in that range allowed
-  let ASCIICode = evt.which ? evt.which : evt.keyCode;
-  if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) return false;
-  return true;
+  if (evt.target.value.length <= 8) {
+    let ASCIICode = evt.which ? evt.which : evt.keyCode;
+    if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) return false;
+    return true;
+  } else {
+    return false;
+  }
 }
