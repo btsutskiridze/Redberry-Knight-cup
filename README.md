@@ -44,7 +44,7 @@ JS files:
   sessionStorage.js = 
     window.onload =  calling function saveSessionData() and function loadSessionData()
     function saveValue(e) = saving input values to sessionStorage
-    function saveDropdownValue(e)  = saving dropdown values to sessionStorage
+    function saveDropdownValue(e)  = saving dropdown values to sessionStorage 
     function checkRadioInput() = saving question yes/no values
     function saveSessionData() = saves data which will not be initialized after restarting registration form
     function loadSessionData() = loads saved data from sessionStorage
