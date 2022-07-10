@@ -14,7 +14,19 @@
         <div class="left-head">
           <img src="./images/Khight-cup-logo.svg" alt="logo" />
         </div>
-        <div class="left-body"></div>
+        <div class="left-body">
+          <div class="quote quote1" id="quote1">
+            <h1>“When you see a good move, look for a better one.”</h1>
+            <p>-Emanuel Lasker</p>
+          </div>
+          <div class="quote quote2" id="quote2">
+            <h1>
+              “Many have become chess masters; <br />
+              no one has become the master of chess.”
+            </h1>
+            <p>- Siegbert Tarrasch</p>
+          </div>
+        </div>
       </div>
       <!-- ******* right ********* -->
       <div class="right-side">
@@ -30,12 +42,12 @@
       <div class="personal-info">
         <div class="form-part-header"><h3>start creating your account</h3></div>
 
-        <form action="#" class="registerForm" id="registerForm">
+        <form class="registerForm" id="registerForm">
           <!-- progress bar -->
           <div class="progress-bar">
             <div class="progress" id="progress"></div>
-            <div class="progress-step progress-step-active" data-title="Personal information"></div>
-            <div class="progress-step" data-title="Chess experience"></div>
+            <div class="progress-step progress-step-active" id="progress-step1" data-title="Personal information"></div>
+            <div class="progress-step" id="progress-step2" data-title="Chess experience"></div>
           </div>
           <!-- end of progress bar  -->
           <!-- first step -->
@@ -44,12 +56,23 @@
               <h1>Personal information</h1>
               <h3>This is basic information field</h3>
             </div>
-            <input type="text" name="name" id="name" onkeyup="saveValue(this)" onfocusout="nameValidation(this)" placeholder="Name*" class="input" autocomplete="off" />
-            <input type="email" name="email address" id="email" onkeyup="saveValue(this)" onfocusout=" emailValidation(this)" placeholder="Email address*" class="input" autocomplete="off" />
+            <input type="text" name="name" id="name" onfocus="progressGreen()" onkeyup="saveValue(this)" onfocusout="nameValidation(this)" placeholder="Name *" class="input" autocomplete="off" />
+            <input
+              type="email"
+              name="email address"
+              id="email"
+              onfocus="progressGreen()"
+              onkeyup="saveValue(this)"
+              onfocusout=" emailValidation(this)"
+              placeholder="Email address*"
+              class="input"
+              autocomplete="off"
+            />
             <input
               type="tel"
               name="phone number"
               id="phone"
+              onfocus="progressGreen()"
               onkeyup="saveValue(this)"
               onfocusout="phoneValidation(this)"
               placeholder="Phone number*"
@@ -61,10 +84,10 @@
               name="birthday"
               id="birthday"
               onkeyup="saveValue(this)"
-              onfocusout="dateValidation(this)"
+              onfocusout="(this.type='text');dateValidation(this)"
               placeholder="Date of birth*"
               type="text"
-              onfocus="(this.type='date')"
+              onfocus="(this.type='date');progressGreen()"
               class="input"
               autocomplete="off"
               min="1920-01-01"
@@ -80,11 +103,11 @@
             </div>
             <div class="select-group">
               <div class="dropdown dropdown1" onclick="saveDropdownValue(this)">
-                <h2 class="h2" id="knowledge">level of knowledge *</h2>
+                <h2 class="h2" id="knowledge">level of knowledge <span style="color: #dc3545">*</span></h2>
                 <ul class="first-dropdown-options dropdown-options">
-                  <li>Beginner</li>
-                  <li>Intermediate</li>
-                  <li>Professional</li>
+                  <li>beginner</li>
+                  <li>intermediate</li>
+                  <li>professional</li>
                 </ul>
               </div>
               <div class="dropdown dropdown2" onclick="saveDropdownValue(this)">
@@ -95,7 +118,7 @@
               </div>
             </div>
             <div class="question-group">
-              <p>Have you participated in the Redberry Championship? *</p>
+              <p>Have you participated in the Redberry Championship? <span style="color: #dc3545">*</span></p>
               <div class="choice">
                 <input type="radio" id="yes" name="participated" value="yes" onclick="checkRadioInput()" />
                 <label for="yes">Yes</label>
@@ -130,8 +153,15 @@
       </div>
       <!-- *********** end of form ****************** -->
     </div>
-    <script src="./dropdown.js"></script>
-    <script src="./app.js"></script>
-    <script src="./sessionStorage.js"></script>
+
+    <script src="./js/index.js"></script>
+    <script src="./js/first-step.js"></script>
+    <script src="./js/second-step.js"></script>
+    <script src="./js/final.js"></script>
+    <script src="./js/dropdown.js"></script>
+    <script src="./js/sessionStorage.js"></script>
+    <!-- <script src="./app.js"></script> -->
+
+    <!-- <script src="./placeholder.js"></script> -->
   </body>
 </html>
