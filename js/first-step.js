@@ -123,24 +123,6 @@ const validateStep1 = () => {
   return check === 0 ? true : false;
 };
 
-//checks if input was pressed onfocus=''
-function progressGreen() {
-  let istyped = false;
-  let inputs = document.querySelectorAll('.input');
-  const progressStep1 = document.getElementById('progress-step1');
-  for (let i = 0; i < inputs.length; i++) {
-    if (inputs[i].value.length >= 1) {
-      istyped = true;
-      break;
-    }
-  }
-
-  if (istyped) {
-    progressStep1.style.background = '#e9faf1';
-    sessionStorage.setItem('progress-step1', '#e9faf1');
-  }
-}
-
 // ***helpers***
 //helper for name validation
 function nameValidation(input) {
@@ -227,5 +209,24 @@ function onlyNumberKey(evt) {
     return true;
   } else {
     return false;
+  }
+}
+// ********
+
+//checks if input was pressed onfocus=''
+function progressGreen() {
+  let istyped = false;
+  let inputs = document.querySelectorAll('.input');
+  const progressStep1 = document.getElementById('progress-step1');
+  for (let i = 0; i < inputs.length; i++) {
+    if (inputs[i].value.length >= 1) {
+      istyped = true;
+      break;
+    }
+  }
+
+  if (istyped) {
+    progressStep1.style.background = '#e9faf1';
+    sessionStorage.setItem('progress-step1', '#e9faf1');
   }
 }
