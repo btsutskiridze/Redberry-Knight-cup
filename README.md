@@ -48,9 +48,8 @@ JS files:<br/>
     function checkRadioInput() = saving question yes/no values<br/>
     function saveSessionData() = saves data which will not be initialized after restarting registration form<br/>
     function loadSessionData() = loads saved data from sessionStorage<br/>
-    
-    
-
+ <br/><br/>
+ Thank You!
     
     
     
